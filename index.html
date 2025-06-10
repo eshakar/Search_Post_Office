@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Office Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-content">
+        <div class="welcome-left">
+          <h1>Post Office Application.</h1>
+          <p>
+            This Application Allows you to extract information about the nearest
+            Post Offices, based on your location.
+          </p>
+          <div class="illustration">
+            <div class="person-icon"></div>
+          </div>
+        </div>
+        <div class="welcome-right">
+          <div class="ip-display">
+            Your Current IP Address is <span id="ipAddress">Loading...</span>
+          </div>
+          <button class="get-started-btn" onclick="getStarted()">
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <div class="container">
+        <div class="info-section">
+          <div class="info-grid">
+            <div class="info-item">
+              <label>IP Address:</label>
+              <span id="displayIP">-</span>
+            </div>
+            <div class="info-item">
+              <label>Lat:</label>
+              <span id="latitude">-</span>
+            </div>
+            <div class="info-item">
+              <label>Long:</label>
+              <span id="longitude">-</span>
+            </div>
+            <div class="info-item">
+              <label>City:</label>
+              <span id="city">-</span>
+            </div>
+            <div class="info-item">
+              <label>Region:</label>
+              <span id="region">-</span>
+            </div>
+            <div class="info-item">
+              <label>Organisation:</label>
+              <span id="organisation">-</span>
+            </div>
+            <div class="info-item">
+              <label>Hostname:</label>
+              <span id="hostname">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="section-title">Your Current Location</h2>
+          <div class="map-container">
+            <iframe
+              id="mapFrame"
+              src=""
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="section-title">More Information About You</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Time Zone:</label>
+              <span id="timezone">-</span>
+            </div>
+            <div class="info-item">
+              <label>Date And Time:</label>
+              <span id="datetime">-</span>
+            </div>
+            <div class="info-item">
+              <label>Pincode:</label>
+              <span id="pincode">-</span>
+            </div>
+            <div class="info-item">
+              <label>Message:</label>
+              <span id="message"
+                >Number of pincode(s) found:
+                <span id="postcodeCount">0</span></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h2 class="section-title">Post Offices Near You</h2>
+          <div class="search-container">
+            <input
+              type="text"
+              class="search-box"
+              id="searchBox"
+              placeholder="Search by name or branch office..."
+              onkeyup="filterPostOffices()"
+            />
+          </div>
+          <div id="loadingSpinner" class="loading" style="display: none">
+            <div class="spinner"></div>
+            <p>Loading post offices...</p>
+          </div>
+          <div id="postOfficesContainer" class="post-offices-grid">
+            <!-- Post offices will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
